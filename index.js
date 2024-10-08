@@ -12,8 +12,8 @@ app.get('/screenshot', (req, res) => {
 });
 
 (async () => {
-  // Launch a browser instance
-  const browser = await chromium.launch();
+  // Launch a browser instance in headless mode
+  const browser = await chromium.launch({ headless: true });
 
   // Create a new page in the browser
   const page = await browser.newPage();
@@ -37,4 +37,4 @@ app.get('/screenshot', (req, res) => {
   app.listen(3000, () => {
     console.log('Server running at http://localhost:3000/screenshot');
   });
-})()
+})();
